@@ -1,22 +1,56 @@
-
-
-function playSound(e) {
-    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-    if(!audio) return; // Stops the fuction if there's no audio associated with that key.
-    audio.currentTime = 0; // rewinds the audio sample to the start (only noticable with rapid presses)
-    audio.play();
-    key.classList.add('playing');
-
-    console.log(key);
-};
-
 function removeTransition(e) {
-    if(e.propertyName !== 'transform' ) return;
-    this.classList.remove('playing');
+  if (e.propertyName !== 'transform') return;
+  e.target.classList.remove('playing');
 }
 
-const keys = document.querySelectorAll(".key");
-keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+function playSound(e) {
+  const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+  const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+  if (!audio) return;
+  key.classList.remove('playing');
+  key.classList.add('playing');
+  audio.currentTime = 0;
+  audio.play();
+}
 
-window.addEventListener('keydown', playSound)
+function changeImage(e) { //not currently working
+  if (e.keyCode == "65") {        // clap
+    document.querySelector("body").style.backgroundImage = "url(./pictures/neutral.JPG)"
+  } else if (e.keyCode == "83") { //hihat
+    document.querySelector("body").style.backgroundImage = "url(./pictures/neutral.JPG)"
+    setTimeout(() => { document.querySelector("body").style.backgroundImage = "url(./pictures/openhihats.JPG)"; }, 30);
+  } else if (e.keyCode == "68") { // kickdrum
+    document.querySelector("body").style.backgroundImage = "url(./pictures/neutral.JPG)"
+    setTimeout(() => { document.querySelector("body").style.backgroundImage = "url(./pictures/neutral.JPG)"; }, 30);
+  } else if (e.keyCode == "70") { // hihat
+    document.querySelector("body").style.backgroundImage = "url(./pictures/neutral.JPG)"
+    setTimeout(() => { document.querySelector("body").style.backgroundImage = "url(./pictures/openhihats.JPG)"; }, 30); 
+  } else if (e.keyCode == "71") { // triggerpad / boom
+    document.querySelector("body").style.backgroundImage = "url(./pictures/neutral.JPG)"
+    setTimeout(() => { document.querySelector("body").style.backgroundImage = "url(./pictures/trigger.JPG)"; }, 30);
+  } else if (e.keyCode == "72") { // ride
+    document.querySelector("body").style.backgroundImage = "url(./pictures/neutral.JPG)"
+    setTimeout(() => { document.querySelector("body").style.backgroundImage = "url(./pictures/ride.JPG)"; }, 30);
+  } else if (e.keyCode == "74") { // snare
+    document.querySelector("body").style.backgroundImage = "url(./pictures/neutral.JPG)"
+    setTimeout(() => { document.querySelector("body").style.backgroundImage = "url(./pictures/snare.JPG)"; }, 30);
+  } else if (e.keyCode == "75") { // tom
+    document.querySelector("body").style.backgroundImage = "url(./pictures/neutral.JPG)"
+    setTimeout(() => { document.querySelector("body").style.backgroundImage = "url(./pictures/tom4.JPG)"; }, 30);
+  } else if (e.keyCode == "76") { // gong
+    document.querySelector("body").style.backgroundImage = "url(./pictures/neutral.JPG)"
+    setTimeout(() => { document.querySelector("body").style.backgroundImage = "url(./pictures/gong.JPG)"; }, 30);
+  }
+}
+/*
+function myFunction() { // for testing purposes
+  console.log("button pressed")
+  document.querySelector("body").style.backgroundImage = "url(./pictures/gong.JPG)"
+}
+*/
+
+const keys = Array.from(document.querySelectorAll('.key'));
+keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+window.addEventListener('keydown', playSound);
+window.addEventListener('keydown', changeImage);
+

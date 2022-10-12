@@ -1,13 +1,14 @@
 html {
   font-size: 10px;
-  background: url('./dandrums.jpg') bottom center;
-  background-size: cover;
 }
 
 body,html {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-image: url('./pictures/neutral.JPG');
+  background-size: cover;
+  background-position: bottom center;
 }
 
 .keys {
@@ -38,6 +39,61 @@ body,html {
   box-shadow: 0 0 1rem #ffc600;
 }
 
+.key.clap {
+  background-image: url('./pictures/closeups/clap.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.key.hihat {
+  background-image: url('./pictures/closeups/hihat.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+
+.key.kick {
+  background-image: url('./pictures/closeups/kick.JPG');
+  background-size: cover;
+  background-position: center;
+}
+
+.key.openhat {
+  background-image: url('./pictures/closeups/openhats.jpg')  ;
+  background-size: cover;
+  background-position: center;
+}
+
+.key.boom {
+  background-image: url('./pictures/closeups/sample.JPG');
+  background-size: cover;
+  background-position: center;
+}
+
+.key.ride {
+  background-image: url('./pictures/closeups/ride.JPG');
+  background-size: cover;
+  background-position: center;
+}
+
+.key.snare {
+  background-image: url('./pictures/closeups/snare.JPG');
+  background-size: cover;
+  background-position: center;
+}
+
+.key.tom {
+  background-image: url('./pictures/closeups/tom3.JPG');
+  background-size: cover;
+  background-position: center;
+}
+
+.key.gong {
+  background-image: url('./pictures/closeups/gong.JPG');
+  background-size: cover;
+  background-position: center;
+}
+
 kbd {
   display: block;
   font-size: 4rem;
@@ -48,4 +104,10 @@ kbd {
   text-transform: uppercase;
   letter-spacing: .1rem;
   color: #ffc600;
+}
+
+#myDiv {
+  background-image: "./pictures/neutral.jpg";
+  background-size: cover;
+  background-position: bottom center;
 }
